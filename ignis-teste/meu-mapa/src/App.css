@@ -36,6 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.header{
+  background-color: #212121;
+  height: 45px;
+}
+
 .container {
   display: flex;
   height: 100vh;

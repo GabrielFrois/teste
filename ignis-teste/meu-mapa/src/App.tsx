@@ -15,25 +15,32 @@ const App: React.FC = () => {
   const [biomaSelecionado, setBiomaSelecionado] = useState<keyof typeof biomas>("Amazônia");
 
   return (
-    <div className="container">
-      {/* Sidebar de Filtros */}
-      <div className="sidebar">
-        <h2>Filtros</h2>
-        <label>Escolha um bioma:</label>
-        <select value={biomaSelecionado} onChange={(e) => setBiomaSelecionado(e.target.value as keyof typeof biomas)}>
-          {Object.keys(biomas).map((bioma) => (
-            <option key={bioma} value={bioma}>{bioma}</option>
-          ))}
-        </select>
-      </div>
+    <div>
+      {/* Header */}
+      <header className="header">
+        <img></img>
+      </header>
 
-      {/* Mapa na direita */}
-      <div className="map-container">
-        <MapComponent
-          latitude={biomas[biomaSelecionado].latitude}
-          longitude={biomas[biomaSelecionado].longitude}
-          bioma={biomaSelecionado}
-        />
+      <div className="container">
+        {/* Sidebar de Filtros */}
+        <div className="sidebar">
+          <h2>Filtros</h2>
+          <label>Escolha um bioma:</label>
+          <select value={biomaSelecionado} onChange={(e) => setBiomaSelecionado(e.target.value as keyof typeof biomas)}>
+            {Object.keys(biomas).map((bioma) => (
+              <option key={bioma} value={bioma}>{bioma}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Mapa na direita */}
+        <div className="map-container">
+          <MapComponent
+            latitude={biomas[biomaSelecionado].latitude}
+            longitude={biomas[biomaSelecionado].longitude}
+            bioma={biomaSelecionado}
+          />
+        </div>
       </div>
     </div>
   );
